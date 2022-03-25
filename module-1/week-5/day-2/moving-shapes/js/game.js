@@ -1,4 +1,4 @@
-class Game {
+/* class Game {
 	constructor() {
 		this.canvas = null;
 		this.ctx = null;
@@ -7,9 +7,21 @@ class Game {
 		this.background = null;
 		// Automatically building up our Canvas element
 		this.init();
+	} */
+	class Game {
+		constructor(){
+			this.canvas = null;
+			this.canvas = null;
+			this.ctx = null ;
+			this.gameSize = { w: null, h: null };
+			this.players = null;
+			this.background = null;
+			this.init ();
+
+		}
 	}
 
-	init() {
+	/* init() {
 		// Calling all the needed methods built under
 		this.setCanvas();
 		// Set the size of the canvas Element
@@ -17,18 +29,43 @@ class Game {
 		this.createPlayer();
 		this.createBackground();
 		this.drawAll();
-	}
+	} */
 
-	setCanvas() {
+		init(){
+			this.setCanvas();
+			this.setSize();
+			this.createPlayer();
+			this.createBackground();
+			this.drawAll();
+
+		}
+	/* setCanvas() {
 		this.canvas = document.getElementById("my-canvas");
 		this.ctx = this.canvas.getContext("2d");
-	}
+	} */
+		setCanvas(){
+			this.canvas = document.getElementById("my-canvas");
+			this.ctx = his.canvas.getContext("2d");
+		}
 
+	/* setSize() {
+		this.gameSize = { w: window.innerWidth, h: window.innerHeight };
+		this.canvas.setAttribute("width", this.gameSize.w);
+		this.canvas.setAttribute("height", this.gameSize.h);
+	} */
 	setSize() {
 		this.gameSize = { w: window.innerWidth, h: window.innerHeight };
 		this.canvas.setAttribute("width", this.gameSize.w);
 		this.canvas.setAttribute("height", this.gameSize.h);
 	}
+	}
+	/* createPlayer() {
+		this.players = [
+			new Player(this.ctx, 100, 100, 50, 50, this.gameSize),
+			new Player(this.ctx, 20, 200, 100, 100, this.gameSize),
+			new Player(this.ctx, 100, 100, 10, 10, this.gameSize),
+		];
+	} */
 	createPlayer() {
 		this.players = [
 			new Player(this.ctx, 100, 100, 50, 50, this.gameSize),
@@ -36,11 +73,26 @@ class Game {
 			new Player(this.ctx, 100, 100, 10, 10, this.gameSize),
 		];
 	}
+/* 	createBackground() {
+		this.background = new Background(this.canvas, this.ctx);
+		this.background.setImage();
+	} */
 	createBackground() {
 		this.background = new Background(this.canvas, this.ctx);
 		this.background.setImage();
 	}
 
+	/* drawAll() {
+		this.clear();
+		this.background.draw();
+		this.background.move();
+
+		this.players.forEach((player) => {
+			player.move();
+			player.draw();
+		});
+		requestAnimationFrame(() => this.drawAll());
+	} */
 	drawAll() {
 		this.clear();
 		this.background.draw();
@@ -53,7 +105,11 @@ class Game {
 		requestAnimationFrame(() => this.drawAll());
 	}
 
-	clear() {
+/* 	clear() {
 		this.ctx.clearRect(0, 0, this.gameSize.w, this.gameSize.h);
 	}
+} */
+clear() {
+	this.ctx.clearRect(0, 0, this.gameSize.w, this.gameSize.h);
+}
 }
